@@ -1,0 +1,671 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+
+        "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+
+<html lang="en">
+
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+
+	<title>Invision Install Guide: Installing</title>
+
+<style>
+
+		BODY, TABLE { font-family: verdana, arial; font-size:12px; line-height:150% }
+
+		.title      { background-image: url(tile_back.gif); font-family:arial; font-size:18px; color:white; font-weight:bold; height:40px }
+
+		.table1     { border:1px solid #999999 }
+
+		.table2     { border:1px dotted #999999 }
+
+		.menustrip  { font-color:black; background-color:#EEEEEE; font-size:12px; height:24px }
+
+		a:link, a:visited, a:active  { color:#000055 }
+
+		a:hover                      { color:#333377;text-decoration:underline }
+
+		.header     { border-bottom:1px dashed #999999; font-family:Verdana, Arial; font-weight:bold; color:#4C77B6; font-size:20px; background-color:#FEFEFE; letter-spacing:-1px }
+
+
+
+	</style>
+
+</head>
+
+<body bgcolor="#FFFFFF" topmargin='5' leftmargin='0'>
+
+
+
+<!-- Start content -->
+
+
+
+<a name='top'></a>
+
+<table width='95%' align='center' cellpadding='4' cellspacing='0'>
+
+ <tr>
+
+  <td class='header' align='left'>Installing: Step 1 - Uploading</td>
+
+ </tr>
+
+ <tr>
+
+  <td align='left'>
+
+  <br>At this point, you should have the zip archive "unzipped" and the contents similar to those shown in the <a href='install.html#structure' target='bottom'>structure and CHMOD guide</a>. If you
+
+  do not have a similar structure, check to make sure you have your zip program preferences set to allow creation of directories and to preserve case and long filenames.
+
+  <br><br>
+
+  If you haven't done so already, create a new directory on your server named appropriately (if you wanted to access the forums via 'http://www.domain.com/forums/', create a directory called 'forums' in the
+
+  'public_html' or 'www' directory on your webserver.
+
+  <br><br>
+
+  Using your FTP client, move into the directory you wish to upload to (if you followed the above advice, move into the newly created 'forums' directory.)
+
+  <br><br>
+
+  Using your FTP client, create the following directories "archive_in", "archive_out", "cache", "fonts", "html", "lang", "modules", "Skin", "sources", "ssi_templates", "style_images",
+
+   and "uploads" <span style='color:blue'>(TIP: If your FTP client supports "Drag n' Drop" which most modern clients do, you can save yourself some time and effort by
+
+  simply selecting all the files from the "unzipped" zip archive and drag them into your FTP client window, this will then copy all the files, creating the directories as it goes. If you choose
+
+  to do this, you can safely ignore most of the following instruction, just remember to CHMOD as outlined in the stucture and CHMOD guide).</span>
+
+  <br><br>
+
+   Once the directories have been created, CHMOD "archive_in", "archive_out" and "uploads" to 0755 (if you get permissions errors later on, you can CHMOD these to
+
+   "0777"). Now, upload the contents of the files in your local folders (from the zip file) into the corresponding directories you've just created on your server. Some folders will contain other
+
+   files and folders, upload them all - preserving the structure you have in your zip file (for example, upload the entire contents of the "html" folder on your computer to the "html" directory on the server).
+
+   <br><br>
+
+   Once you have finished uploading into the directories, upload the rest of the files "admin.php", "conf_global.php", "conf_mime_types.php", "css.php", "index.php",
+
+   "install_templates.txt", "sm_install.php", "ssi.php" to the same place as you created the directories earlier (into "forums" for our example).
+
+   <br>
+
+   CHMOD "conf_global.php" to 0666 (if you get permission denied errors later on, you can CHMOD this to 0777).
+
+   <br><br>
+
+   That's it, the hard work is now done! You can proceed to the next step.
+
+  </td>
+
+ </tr>
+
+</table>
+
+
+
+<br>
+
+
+
+<table width='95%' align='center' cellpadding='4' cellspacing='0'>
+
+ <tr>
+
+  <td class='header' align='left'>Installing: Step 2 - Using the Installer</td>
+
+ </tr>
+
+ <tr>
+
+  <td align='left'>
+
+  An installer is provided to assist you in entering the information Invision Power Board needs to connect to your mySQL database and to create your new
+
+  administrators account.
+
+  <br><br>
+
+  Run the "sm_install.php" file through your web browser by entering the URL to it into your browser address bar (if you have followed our example, type in
+
+  <b>http://www.domain.com/forums/sm_install.php</b>, naturally subsituting 'domain.com' for your web address.)
+
+  <br><br>
+
+  You will be presented with a short information screen, if you receive an error telling you that "conf_global.php" does not have suitable permissions, CHMOD "conf_global.php" to
+
+  0777 via your FTP client.
+
+  <br><br>
+
+  Clicking on proceed will present you with a simple information form. You will need to know your mySQL username and password at this point. If you do not know it, please ask your web host - in most
+
+  cases it is different from the FTP log in information.
+
+  <br><br>The form is very straightfoward, with only the following points needing closer examination. If you do not know what your mySQL "host" is, try "localhost" (without the quotes). if the mySQL server
+
+  is on the same server as your website (and in most cases it is) this will suffice.
+
+  <br>
+
+  If you have created a new database for Invision Power Board, or wish to use an existing database, enter the name of the database in the appropriate field.<br><br>Unless you intend to install multiple copies of
+
+  Invision Power Board into the same database, you can leave the "table prefix" blank. If you do not have a mySQL password (if you are installing Invision Power Board on your local server) this can be left blank.
+
+  <br>
+
+  After submitting the form, you will be informed of any errors - if you do get an error similar to "permission denied for user@localhost using password YES" - the chances are you have either your mySQL username, mySQL password
+
+  or mySQL database name wrong. Consult with your webhost for the correct information and resubmit the form.
+
+  <br><br>
+
+  If the installation was successful, you will receive notification to that effect.
+
+  <br>
+
+  Follow the link to finish off the installation and to log into your newly installed board. When the log in page loads, enter in the information you chose for your administrator account.
+
+  <br>
+
+  Once you are logged into the board, click on the "Admin CP" link found in the navigation bar to access the Administration Control Panel.
+
+  </td>
+
+ </tr>
+
+</table>
+
+
+
+
+
+<br>
+
+
+
+<table width='95%' align='center' cellpadding='4' cellspacing='0'>
+
+ <tr>
+
+  <td class='header' align='left'>Installing: Step 3 - Admin CP First Steps</td>
+
+ </tr>
+
+ <tr>
+
+  <td align='left'>
+
+  The Invision Power Board administration control panel is a very sophisticated tool. This is where you can create new categories and forums for your board, as well
+
+  as set bad word filters, edit emoticons, change the board colours and so on. We recommend you browse the documentation at <a href='http://www.invisionboard.com/documentation.cgi'>Invision Power Board</a> before getting attempting some of the more complex operations.
+
+  <br><br>
+
+  <b>Lets get stuck in!</b>
+
+  <br>
+
+  The first thing you will need to do is remove the "sm_install.php" file from your server; although Invision Power Board locks the installer after a successful install, it's always a good idea to remove the installer as re-running it
+
+  <b>will delete your database tables</b>.
+
+  <br><br>
+
+  <b>Before anyone can post, we need some forums!</b>
+
+  <br>
+
+  If you wish to get stuck in straight away, now would be a good time to create some forums for your members to post in.
+
+  <br>
+
+  In the Administrators CP, click on the "Forum Control" expanding menu in the left menu frame. When it loads, click on "New Category".
+
+  <br>If your website was about computers, you could enter "PC Software" as the category name. Submit the form by clicking the button at the bottom of the page.
+
+  <br>Now we have a category to "group" the forums, lets create a forum or two.
+
+  <br><br>Click on "New Forum" found in the same expandable menu. Choose "Normal Forum" from the drop down box and proceed.
+
+  <br>There are many options here, which are outside the scope of this guide, for more information see the documentation at <a href='http://www.invisionboard.com/documentation.cgi'>Invision Power Board</a>. We can
+
+  create a new forum without knowing what all the options do. Using our example, you might want a forum dedicated to "Games" - if so, enter "Games" as the forum title, and a suitable description for the new forum. When you have done this
+
+  scroll down and submit the form by clicking the button at the bottom of the page.
+
+  <br><br>
+
+  If you now go back to your board, and refresh the page, you will see the new category and forum. Try a little test post to make sure the system is running perfectly.
+
+  <br><br>
+
+  Congratulations! You have installed and set up your new Invision Power Board. If you ran into trouble, please click on the "Help!" link in the top menu bar for the FAQ and how to get support.
+
+  <br><br>
+
+  <i>Thank you for supporting Invision Power Board</i>
+
+  </td>
+
+ </tr>
+
+</table>
+
+
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+
+
+<a name='structure'></a>
+
+<table width='95%' align='center' cellpadding='4' cellspacing='0'>
+
+ <tr>
+
+  <td class='header' align='left'>File Structure and CHMOD values</td>
+
+ </tr>
+
+ <tr>
+
+  <td align='left'>Below is a table showing the file structure and recommended CHMOD values for the file (and in the case of directories, the CHMOD
+
+  values for the contents of the directories).<br>The CHMOD values are not needed for Windows based servers and can be safely ignored. The CHMOD
+
+  values may vary from system to system, if in doubt, CHMOD everything to 0777.<br>Most systems will not need to CHMOD everything to install successfully,
+
+  use the table below to determine what needs CHMOD'ding for installation, and what can be left until later.
+
+  </td>
+
+ </tr>
+
+ <tr>
+
+  <td align='center'>
+
+  <table width='100%' align='center' cellpadding='0' cellspacing='0' bgcolor='#BCBCBC'>
+
+  <tr>
+
+   <td>
+
+    <table width='100%' align='center' cellpadding='4' cellspacing='1'>
+
+     <tr>
+
+       <td width='5%' bgcolor='#EEEEEE' style='font-size:10px'>&nbsp;</td>
+
+       <td width='25%' bgcolor='#EEEEEE' style='font-size:10px'><b>File/Folder Name</b></td>
+
+       <td width='20%' bgcolor='#EEEEEE' style='font-size:10px' align='center'><b>Item CHMOD Value</b></td>
+
+       <td width='30%' bgcolor='#EEEEEE' style='font-size:10px' align='center'><b>Contents CHMOD Value</b></td>
+
+       <td width='15%' bgcolor='#EEEEEE' style='font-size:10px' align='center'><b>CHMOD for install</b></td>
+
+       <td width='15%' bgcolor='#EEEEEE' style='font-size:10px' align='center'><b>Can CHMOD later</b></td>
+
+      </tr>
+
+      
+
+      <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='file.gif' border='0' alt='PHP file'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'>admin.php</td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+      </tr>
+
+      
+
+       <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='folder.gif' border='0' alt='folder'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'><span style='color:blue'>archive_in</span></td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>0755</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><span style='color:red'><b>X</b></span></a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+      </tr>
+
+      <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='folder.gif' border='0' alt='folder'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'><span style='color:blue'>archive_out</span></td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>0755</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><span style='color:red'><b>X</b></span></a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+      </tr>
+
+      <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='folder.gif' border='0' alt='folder'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'><span style='color:blue'>cache</span></td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>0755</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><span style='color:red'><b>X</b></span></a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+      </tr>
+
+      <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='file.gif' border='0' alt='PHP file'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'>conf_global.php</td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>0666</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><span style='color:red'><b>X</b></span></a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+      </tr>
+
+      <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='file.gif' border='0' alt='PHP file'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'>conf_mime_types.php</td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+      </tr>
+
+      <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='file.gif' border='0' alt='PHP file'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'>css.php</td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+      </tr>
+
+      <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='folder.gif' border='0' alt='folder'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'><span style='color:blue'>fonts</span></td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+      </tr>
+
+      <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='folder.gif' border='0' alt='folder'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'><span style='color:blue'>html</span></td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+      </tr>
+
+      <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='file.gif' border='0' alt='PHP file'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'>index.php</td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+      </tr>
+
+      <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='file.gif' border='0' alt='PHP file'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'>install_templates.txt</td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+      </tr>
+
+       <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='folder.gif' border='0' alt='folder'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'><span style='color:blue'>lang</span></td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>0755</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>0755</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><span style='color:red'><b>X</b></span></a>
+
+      </tr>
+
+      <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='folder.gif' border='0' alt='folder'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'><span style='color:blue'>modules</span></td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+      </tr>
+
+      <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='folder.gif' border='0' alt='folder'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'><span style='color:blue'>Skin</span></td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>0755</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>0755</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><span style='color:red'><b>X</b></span></a>
+
+      </tr>
+
+      <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='file.gif' border='0' alt='PHP file'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'>sm_install.php</td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+      </tr>
+
+      <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='folder.gif' border='0' alt='folder'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'><span style='color:blue'>sources</span></td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+      </tr>
+
+      <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='file.gif' border='0' alt='PHP file'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'>ssi.php</td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+      </tr>
+
+      <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='folder.gif' border='0' alt='folder'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'><span style='color:blue'>ssi_templates</span></td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+      </tr>
+
+      <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='folder.gif' border='0' alt='folder'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'><span style='color:blue'>style_images</span></td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>0755</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>0755</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><span style='color:red'><b>X</b></span></a>
+
+      </tr>
+
+      <tr>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><img src='folder.gif' border='0' alt='folder'></td>
+
+       <td align='left' valign='middle' bgcolor='#FFFFFF'><span style='color:blue'>uploads</span></td>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>0777</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'><span style='color:red'><b>X</b></span></a>
+
+       <td align='center' valign='middle' bgcolor='#FFFFFF'>-</a>
+
+      </tr>
+
+      </table>
+
+    </td>
+
+   </tr>
+
+   </table>
+
+  </td>
+
+ </tr>
+
+</table>
+
+
+
+<!-- End content -->
+
+
+
+</body>
+
+</html>

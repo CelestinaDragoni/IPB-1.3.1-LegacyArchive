@@ -1,0 +1,47 @@
+FROM ubuntu:14.04
+
+# Upgrade Ubuntu
+RUN apt-get -y update
+RUN apt-get -y upgrade
+
+# Install Core Packages
+RUN DEBIAN_FRONTEND=noninteractive TZ=America/New_York apt-get -y install \
+ php5 \
+ php5-curl \
+ php5-common \
+ php5-imap \
+ php5-intl \
+ php5-mysql \
+ php5-pspell \
+ php5-tidy \
+ php5-xmlrpc \
+ php5-xsl \
+ php5-fpm \
+ php5-imagick \
+ php5-dev \
+ nginx \
+ memcached \
+ net-tools \
+ vim \
+ nano \
+ htop \
+ wget \
+ curl \
+ iputils-ping
+
+# Configuration Settings
+RUN useradd -U nginx
+RUN mkdir /var/log/php/
+RUN touch /var/log/php/php_errors.log
+RUN chmod -R 0777 /var/log/php
+RUN echo "listen = 0.0.0.0:9000"                                                                      >> /etc/php5/fpm/pool.d/www.conf
+RUN echo "display_errors = On"                                                                        >> /etc/php5/fpm/php.ini
+RUN echo "upload_max_filesize = 50M"                                                                  >> /etc/php5/fpm/php.ini
+RUN echo "post_max_size = 51M"                                                                        >> /etc/php5/fpm/php.ini
+RUN echo "error_log = /var/log/php/php_errors.log"                                                    >> /etc/php5/fpm/php.ini
+RUN echo "auto_prepend_file = /etc/php5/prepend.php"                                                  >> /etc/php5/fpm/php.ini
+RUN rm /etc/nginx/sites-enabled/default
+RUN rm /etc/nginx/sites-available/default
+
+# Start Service
+CMD sh /root/start.sh

@@ -1,0 +1,33 @@
+
+[18-Feb-2023 06:12:27 UTC] PHP Warning:  mysql_connect(): Host 'invision_http_1.invision_default' is not allowed to connect to this MySQL server in /srv/sites/invision/sources/Drivers/mySQL.php on line 67
+[18-Feb-2023 06:12:27 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 70
+[18-Feb-2023 06:12:27 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 103
+[18-Feb-2023 06:12:27 UTC] PHP Warning:  mysql_connect(): Host 'invision_http_1.invision_default' is not allowed to connect to this MySQL server in /srv/sites/invision/sources/Drivers/mySQL.php on line 67
+[18-Feb-2023 06:12:27 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 70
+[18-Feb-2023 06:12:27 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 103
+[18-Feb-2023 06:12:28 UTC] PHP Warning:  mysql_connect(): Host 'invision_http_1.invision_default' is not allowed to connect to this MySQL server in /srv/sites/invision/sources/Drivers/mySQL.php on line 67
+[18-Feb-2023 06:12:28 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 70
+[18-Feb-2023 06:12:28 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 103
+[18-Feb-2023 06:12:28 UTC] PHP Warning:  mysql_connect(): Host 'invision_http_1.invision_default' is not allowed to connect to this MySQL server in /srv/sites/invision/sources/Drivers/mySQL.php on line 67
+[18-Feb-2023 06:12:28 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 70
+[18-Feb-2023 06:12:28 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 103
+[18-Feb-2023 06:12:28 UTC] PHP Warning:  mysql_connect(): Host 'invision_http_1.invision_default' is not allowed to connect to this MySQL server in /srv/sites/invision/sources/Drivers/mySQL.php on line 67
+[18-Feb-2023 06:12:28 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 70
+[18-Feb-2023 06:12:28 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 103
+[18-Feb-2023 06:12:28 UTC] PHP Warning:  mysql_connect(): Host 'invision_http_1.invision_default' is not allowed to connect to this MySQL server in /srv/sites/invision/sources/Drivers/mySQL.php on line 67
+[18-Feb-2023 06:12:28 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 70
+[18-Feb-2023 06:12:28 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 103
+[18-Feb-2023 06:13:26 UTC] PHP Warning:  mysql_connect(): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2) in /srv/sites/invision/sources/Drivers/mySQL.php on line 67
+[18-Feb-2023 06:13:26 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 70
+[18-Feb-2023 06:13:26 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 103
+[18-Feb-2023 06:13:26 UTC] PHP Warning:  mysql_connect(): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2) in /srv/sites/invision/sources/Drivers/mySQL.php on line 67
+[18-Feb-2023 06:13:26 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 70
+[18-Feb-2023 06:13:26 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 103
+[18-Feb-2023 06:13:36 UTC] PHP Warning:  mysql_connect(): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2) in /srv/sites/invision/sources/Drivers/mySQL.php on line 67
+[18-Feb-2023 06:13:36 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 70
+[18-Feb-2023 06:13:36 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 103
+[18-Feb-2023 06:13:36 UTC] PHP Warning:  mysql_connect(): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2) in /srv/sites/invision/sources/Drivers/mySQL.php on line 67
+[18-Feb-2023 06:13:36 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 70
+[18-Feb-2023 06:13:36 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, boolean given in /srv/sites/invision/sources/Drivers/mySQL.php on line 103
+[18-Feb-2023 06:13:48 UTC] PHP Warning:  require(/srv/sites/invision/conf_global.php): failed to open stream: No such file or directory in /srv/sites/invision/index.php on line 107
+[18-Feb-2023 06:13:48 UTC] PHP Warning:  require(/srv/sites/invision/conf_global.php): failed to open stream: No such file or directory in /srv/sites/invision/index.php on line 107

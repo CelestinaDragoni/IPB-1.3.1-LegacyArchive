@@ -1,0 +1,319 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+
+        "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+
+<html lang="en">
+
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+
+	<title>Invision Install Guide: Help & FAQ</title>
+
+<style>
+
+		BODY, TABLE { font-family: verdana, arial; font-size:12px; line-height:150% }
+
+		.title      { background-image: url(tile_back.gif); font-family:arial; font-size:18px; color:white; font-weight:bold; height:40px }
+
+		.table1     { border:1px solid #999999 }
+
+		.table2     { border:1px dotted #999999 }
+
+		.menustrip  { font-color:black; background-color:#EEEEEE; font-size:12px; height:24px }
+
+		a:link, a:visited, a:active  { color:#000055 }
+
+		a:hover                      { color:#333377;text-decoration:underline }
+
+		.header     { border-bottom:1px dashed #999999; font-family:Verdana, Arial; font-weight:bold; color:#4C77B6; font-size:20px; background-color:#FEFEFE; letter-spacing:-1px }
+
+
+
+	</style>
+
+</head>
+
+<body bgcolor="#FFFFFF" topmargin='5' leftmargin='0'>
+
+
+
+<!-- Start content -->
+
+
+
+<a name='top'></a>
+
+<table width='95%' align='center' cellpadding='4' cellspacing='0'>
+
+ <tr>
+
+  <td align='center'>
+
+  <b>Sections:</b> <a href='help.html#install' target='bottom'>Installation Problems</a> | <a href='help.html#admin' target='bottom'>Admin CP Problems</a> | <a href='help.html#main' target='bottom'>Board Problems</a> | <a href='help.html#help' target='bottom'>Getting Further Help</a>
+
+ </td></tr>
+
+</table>
+
+
+
+<br>
+
+
+
+<a name='install'></a>
+
+<table width='95%' align='center' cellpadding='4' cellspacing='0'>
+
+ <tr>
+
+  <td class='header' align='left'>Installation Problems</td>
+
+ </tr>
+
+ <tr>
+
+  <td align='left'>
+
+  <b>When I run the installer, I get a page of code.</b>
+
+  <br>
+
+  If when accessing the installer via your web browser you receive a page of code and not the installation start screen, this means that either PHP has
+
+  not been installed or has not been configured properly. Please consult with your web host to see if this is the case.
+
+  <br><br>
+
+  <b>I get an error like this 'access denied for user@localhost using password YES' when I submit the main form.</b>
+
+  <br>
+
+  If you receive this error from mySQL it means that either the mySQL database name, mySQL username, mySQL password or mySQL host information is wrong. Please double check the information you
+
+  entered making sure that passwords are typed correctly. In some cases, this information is case sensitive. If this error persists, please consult with your web host to check that the information
+
+  you have is correct.
+
+  <br><br>
+
+  <b>After installing, I get this error 'Warning: fopen("/.install.lock", "w") - Permission denied ...'</b>
+
+  <br>
+
+  After installing, Invision Power Board attempts to create a "lock" file which disables the installation script. If you receive this error, the installer
+
+  has not been able to create this file. After you have logged into the Admin Center for the first time, you should remove the "sm_install.php" script
+
+  from your server and only re-upload it if you wish to make a fresh install. You can then safely ignore this warning.
+
+  <br><br>
+
+  <b>When installing I get an error like this: 'WARNING! Could not locate 'conf_global.php'</b>
+
+  <br>
+
+  This error means that the installer could not "guess" the location of the file 'conf_global.php'. Make sure you have uploaded this file into the same directory that you
+
+  uploaded 'sm_install.php' into. If you have this file already uploaded and the CHMOD value has been set, then you can tell the installer where to look for this file by simply
+
+  opening 'sm_install.php' in your favourite text editor. Look near the top for "$root = "./";". Edit this to reflect your "real" path. Note, this is a path - not a URL, entering "http://www.domain.com" or similar will
+
+  result in an error. A path is literally the file path from the server root to the current directory (such as '/home/site/public_html/forums/'). More information is provided in the script near the top. When you have completed
+
+  the edit, simply save the file and re-upload to your server and re-run through your web browser.
+
+ </td></tr>
+
+</table>
+
+
+
+<br>
+
+
+
+<a name='admin'></a>
+
+<table width='95%' align='center' cellpadding='4' cellspacing='0'>
+
+ <tr>
+
+  <td class='header' align='left'>Admin CP Problems</td>
+
+ </tr>
+
+ <tr>
+
+  <td align='left'>
+
+  <b>No matter what I do, I can't stay logged into the Admin CP.</b>
+
+  <br>
+
+  For extra security, the Admin CP checks your IP address as part of the admin session validation. In some cases your IP address will change with each page request (especially if you are using a dial up ISP). You can
+
+  stop the Admin CP checking your IP address which will solve the problem.
+
+  <br>To do this, open up "admin.php" in your text editor. Near the top of the script change <span style='color:red'>$check_ip = 1;</span> to <span style='color:red'>$check_ip = 0;</span>. Save the file and re-upload to your
+
+  server.
+
+  <br>Although there is no immediate security risk to doing this, you should not disclose your admin session ID to anyone or post the link you are using for that admin CP session to anyone.
+
+  <br><br>
+
+  <b>When I try to access the Admin CP, the page is completely blank</b>
+
+  <br>
+
+  This problem could be the result of a few things.<br>
+
+  Firstly, open up "admin.php" in a text editor and near the top change: <span style='color:red'>$use_gzip = 1;</span> to <span style='color:red'>$use_gzip = 0;</span>. Save the file and re-upload to your
+
+  server.
+
+  <br>
+
+  If that doesn't solve the problem, check the CHMOD values on the directories you created during the installation process. If in doubt, CHMOD them to 0777 and any directories contained within.
+
+ </td></tr>
+
+</table>
+
+
+
+<br>
+
+
+
+<a name='main'></a>
+
+<table width='95%' align='center' cellpadding='4' cellspacing='0'>
+
+ <tr>
+
+  <td class='header' align='left'>General Board Problems</td>
+
+ </tr>
+
+ <tr>
+
+  <td align='left'>
+
+  <b>Every time I try to access a page on the forums it loads a blank page.</b>
+
+  <br>
+
+  Can you log into the Admin CP? If you do not know the url, enter the following into your web browser address bar <b>http://www.your-domain-here.com/forums/admin.php</b> (obviously using the correct URL to your board!).
+
+  <br>If the Admin CP loads first time, try the following:
+
+  <br>Click on "Board Settings" to expand the sub-menu. Click on "Basic Config". When the page has loaded, turn off the following: <b>Print HTTP headers?</b> and <b>DISABLE GZIP encoding?</b>. When complete, submit the form
+
+  and try to access your board again.
+
+  <br>
+
+  If it still loads a blank page, check the CHMOD values on the directories you created during the installation including any directories contained within. If in doubt, CHMOD to 0777.
+
+  <br><br>
+
+  <b>I am on a Windows server and I get an Internal Server Error when trying to access my board</b>
+
+  <br>
+
+  There is an option to disable the headers that Invision Power Board prints by default.
+
+  <br>Log into your Admin Control Panel, click on "Board Settings" to expand the sub-menu. Click on "Basic Config". When the page has loaded, turn off <b>Print HTTP headers?</b> and submit the form
+
+  and try to access your board again.
+
+  <br><br>
+
+  <b>I am on a Windows server and when I make a post I am taken to a blank page</b>
+
+  <br>
+
+  Some Windows based servers require a different HTTP protocol when redirecting HTTP requests, there is an option in the Admin Control Panel to overcome this.
+
+  <br>
+
+  Log into your Admin Control Panel, click on "Board Settings" to expand the sub-menu. Click on "Basic Config". Choose "Refresh (Windows Savvy) from the "Type of auto-redirect?" option. Submit the form.
+
+ </td></tr>
+
+</table>
+
+
+
+<br>
+
+
+
+<a name='help'></a>
+
+<table width='95%' align='center' cellpadding='4' cellspacing='0'>
+
+ <tr>
+
+  <td class='header' align='left'>Getting further help</td>
+
+ </tr>
+
+ <tr>
+
+  <td align='left'>
+
+  If you have a problem outside the ones solved in this guide, then don't panic!<br>
+
+  We have a large team of trained support professionals that <b>will</b> be able to provide a solution to your problems.<br>
+
+  Your first stop would be to post a problem on our "Support and Community Forums". We have a large active community who have experience in maintaining their Invision Power Board who may be able to give you a prompt reply - our support professionals also moderate these forums and
+
+  will read your posts. We do recommend that you make use of the search facility on the board to avoid posting problems that have already been posted - there is also a good chance that it's already been reported, discussed and solved.
+
+  <br>
+
+  <br>You may wish to consider <b>the <a href='http://www.invisionboard.com/?whyregister'>registration</a></b> option. A yearly fee will cover you for all support requests for a period of one year (12 months).
+
+  <br>Registration entitles you to the following benefits:
+
+ <ul>
+
+<li> You will have lifetime access to the Invision Power Services Customer Service Center.
+
+<li> Service Ticket access will allow you to submit technical tickets for our highly experienced staff to work with you. This means you will get private, one-on-one help without having to post on our support forums.
+
+<li> Phone support inside the US and UK (toll-free in the US).
+
+<li> Installation of Invision Power Board is included if you need this service (usually $35).
+
+<li> Half-price upgrade installations upon request when new releases of Invision Power Board are available
+
+<li> Discounts on Invision Power Board feature plug-ins</ul>
+
+<br>
+
+For more information on our registration service, please visit our <a href='http://www.invisionboard.com/support.cgi' target='_blank'>advanced services</a> page.
+
+<br><br>
+
+If you wish to contact us for non-technical issues, please visit our <a href='http://www.invisionpower.com/?contact' target='_blank'>Contact Page</a> which includes a handy email form, mailing address and telephone number.
+
+  </td>
+
+ </tr>
+
+</table>
+
+
+
+<!-- End content -->
+
+
+
+</body>
+
+</html>

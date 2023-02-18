@@ -1,0 +1,22 @@
+version: '2.1'
+
+services:
+  http:
+    image: invision:http
+    volumes:
+      - ./docker/http/start.sh:/root/start.sh
+      - ./docker/http/nginx/sites-enabled/default:/etc/nginx/sites-enabled/default
+      - ./public:/srv/sites/invision
+      - ./docker/http/logs/php:/var/log/php
+      - ./docker/http/logs/nginx:/var/log/nginx
+      - ./docker/http/php/prepend.php:/etc/php5/prepend.php
+    ports:
+      - '80:80'
+      - '443:443'
+      - '9000:9000'
+  mysql:
+      image: invision:mysql
+      volumes:
+        - ./docker/mysql/start.sh:/root/start.sh
+      ports:
+          - '3306:3306'

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Hivemail -&gt; IPB Set Up</title>
+	
+	<style type='text/css'>
+	body
+	{
+		background-color:#FFF;
+		background-image: url(http://www.invisionboard.com/tutorial/hivemail/img/bg.jpg);
+		background-repeat: repeat-y;
+		padding: 0px;
+		margin: 10px;
+		font-family: verdana;
+		font-size:12px;
+		text-align:center;
+	}
+	table
+	{
+		font-family: verdana;
+		font-size:11px;
+	}
+	img { border:0px }
+	.headline { font-family:"Trebuchet MS", verdana, arial, sans-serif; font-size:40px;font-weight:bold }
+	.subline { font-family:"Trebuchet MS", verdana, arial, sans-serif; font-size:18px;color:#009 }
+	#wrapper { text-align:left; margin-left:auto;margin-right:auto;width:90% }
+	</style>
+</head>
+<body>
+<div id="wrapper">
+<span class="headline">Integrating HiveMail with IPB 1.2</span>
+<br />
+An Invision Power Board Guide detailing how to set up your HiveMail installation with IPB.
+<br />
+<br />
+<span class="subline">Required Components</span>
+<br /><br />
+You should have already installed HiveMail (1.2+) into a directory called "mail" on your server, in the same root folder as the one
+that contains your IPB forums folder.
+<br /><br />
+<b>An example structure</b>
+<br />
+/home/domain/public_html/mail/
+<br />/home/domain/public_html/forums/
+
+<br /><br />
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+ <td align="left" width="95%" style="padding-right:6px" valign="top">
+ <span class="subline">Configuring the files</span>
+ <br /><br />
+ Before you go any further, you may need to edit one of the included IPB files.
+ <br /><br />If you are using HiveMail 1.2.1, they you <b>do not</b> need to edit any files.
+ <br /><br />If you are using any version previous to 1.2.1, then you'll need to open "invision_plugin.php" and change the arrowed line in the picture to: <kbd>define( 'HIVE_TBL', '' )</kbd> or you will receive errors!
+ </td>
+ <td align="center" width="5%" valign="top"><a href="http://www.invisionboard.com/tutorial/hivemail/img/hive_code.jpg" target="_blank"><img src="http://www.invisionboard.com/tutorial/hivemail/img/hive_code_thumb.jpg" alt="IMG" /></a><br />Click picture to enlarge</td>
+</tr>
+</table>
+
+<br /><br />
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+ <td align="left" width="95%" style="padding-right:6px" valign="top">
+ <span class="subline">Uploading the files</span>
+ <br /><br />
+ <b>Upload the following files</b>
+ <br /><br />Where "forums" is shown, this is your IPB installation, it does not have to be forums.
+ <br /><br />
+ <kbd>/forums/modules/ipb_member_sync.php
+ <br /><br />/forums/modules/mod_hivemail.php
+ <br /><br />/forums/register.php
+ <br /><br />/mail/includes/invision_plugin.php</kdb>
+ </td>
+ <td align="center" width="5%" valign="top"><a href="http://www.invisionboard.com/tutorial/hivemail/img/hive_dir.jpg" target="_blank"><img src="http://www.invisionboard.com/tutorial/hivemail/img/hive_dir_thumb.jpg" alt="IMG" /></a><br />Click picture to enlarge</td>
+</tr>
+</table>
+
+<br /><br />
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+ <td align="left" width="95%" style="padding-right:6px" valign="top">
+ <span class="subline">Configuring HiveMail</span>
+ <br /><br />
+ <b>Log into the HiveMail admin center</b>
+ <br />
+ <ul>
+ 	<li>Under "HiveMail" click on "Options" in the menu.
+ 	<li>When the options menu has loaded, click option 13 "vBulletin Integration"
+ 	<li>Complete the form in a similar way show by the screenshot, mentally substituting "vBulletin" for "IPB"
+ </ul>
+ <br />
+ If you enabled "Allow regular registration", your members can register for HiveMail outside of the board, if not enabled, clicking on the "Sign Up" button on the HiveMail index page
+ will take your visitor to the IPB registration page (with the option of HiveMail email). If you visitor is already registered and logged into IPB, they will be taken to a dedicated HiveMail signup page.
+ <br /><br />
+ <a href="http://www.invisionboard.com/tutorial/hivemail/img/hive_ipb_reg.jpg" target="_blank">Show IPB Reg Form Screen Shot</a> &middot; <a href="http://www.invisionboard.com/tutorial/hivemail/img/hive_ipb_cp.jpg" target="_blank">Show IPB HiveMail Sign Up Page</a>
+ </td>
+ <td align="center" width="5%" valign="top"><a href="http://www.invisionboard.com/tutorial/hivemail/img/hive_options.jpg" target="_blank"><img src="http://www.invisionboard.com/tutorial/hivemail/img/hive_options_thumb.jpg" alt="IMG" /></a><br />Click picture to enlarge</td>
+</tr>
+</table>
+
+<br /><br />
+<span class="subline">That's it! You're all done!</span>
+<br /><br />
+<br />
+~Matt for IPS, Inc. Aug 03
+
+</div>
+</body>
+</html>

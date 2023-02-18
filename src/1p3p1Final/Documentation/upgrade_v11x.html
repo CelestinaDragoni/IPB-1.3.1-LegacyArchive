@@ -1,0 +1,361 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+
+        "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+
+<html lang="en">
+
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+
+	<title>Invision Power Board Upgrade Guide</title>
+
+<style>
+
+		BODY, TABLE { font-family: verdana, arial; font-size:12px; line-height:150% }
+
+		.title      { background-image: url(tile_back.gif); font-family:arial; font-size:18px; color:white; font-weight:bold; height:40px }
+
+		.table1     { border:1px solid #999999 }
+
+		.table2     { border:1px dotted #999999 }
+
+		.menustrip  { font-color:black; background-color:#EEEEEE; font-size:12px; height:24px }
+
+		a:link, a:visited, a:active  { color:#000055 }
+
+		a:hover                      { color:#333377;text-decoration:underline }
+
+		.header     { border-bottom:1px dashed #999999; font-family:Verdana, Arial; font-weight:bold; color:#4C77B6; font-size:20px; background-color:#FEFEFE; letter-spacing:-1px }
+
+
+
+	</style>
+
+</head>
+
+<body bgcolor="#FFFFFF" topmargin='5' leftmargin='0'>
+
+
+
+<!-- Start content -->
+
+
+
+<a name='top'></a>
+
+<table width='95%' align='center' cellpadding='4' cellspacing='0'>
+
+ <tr>
+
+  <td align='center'>
+
+  <b>Sections:</b> <a href='upgrade_v11x.html#intro'>Introduction</a> | <a href='upgrade_v11x.html#upgrade'>Upgrading</a> | <a href='upgrade_v11x.html#main'><b>HELP!!</b></a> | <a href='upgrade_v11x.html#help'>Getting Further Help</a>
+
+ </td></tr>
+
+</table>
+
+
+
+<br>
+
+
+
+<a name='intro'></a>
+
+<table width='95%' align='center' cellpadding='4' cellspacing='0'>
+
+ <tr>
+
+  <td class='header' align='left'>Welcome!</td>
+
+ </tr>
+
+ <tr>
+
+  <td align='left'>
+
+  <b>Synopsis: Upgrading from v1.1.x to v1.2</b>
+
+  <br>
+
+  To upgrade your existing board from Invision Board v1.1.x to Invision Board v1.2, you'll need to update all the program files and
+
+  run an upgrade script that is included in this distribution. You may want to create a database back up and download via FTP any
+
+  existing language packs and skin files as these may be over-written during the upgrade.
+
+  <br><br>
+
+  <b>Important: Skins and full text searching</b>
+
+  <br>
+
+  All v1.1.x skins are not compatible with v1.2. IPB v1.2 has an XHTML compliant skin which has been totally rewritten. The upgrade
+
+  process will 'sunset' all your current skins by marking them as hidden so that you may manually update them if desired.
+
+  <br /><br />
+
+  IPB v1.2 also supports full text searching. It is recommended that after the upgrade you log into your Admin CP, expand the "Board Options" sub menu and
+
+  set up full text search. Note, you will not be able to use the "quick" search until full text searching has been enabled.  
+
+ </td></tr>
+
+</table>
+
+
+
+<br>
+
+
+
+<a name='upgrade'></a>
+
+<table width='95%' align='center' cellpadding='4' cellspacing='0'>
+
+ <tr>
+
+  <td class='header' align='left'>Upgrading</td>
+
+ </tr>
+
+ <tr>
+
+  <td align='left'>
+
+  <b>Saving Old Data</b>
+
+  <br>
+
+  If you wish to save the information in the old default skin, please do the following:
+
+  <br>
+
+  <span style='color:blue'>Via FTP download the directories "Skin/s1/" and "style_images/1/"</span>. The upgrade will need the
+
+  v1.1 files to reside in those directories and any previous data will be lost. You will also need to export the default macro set if
+
+  you wish to retain the information. This <em>should</em> just be the original v1.1 macro set and overwriting it will be harmless.
+
+  <br><br>
+
+  <b>Uploading the Files</b>
+
+  <br>
+
+  From the unzipped package, upload the following files to the same directory that your existing board is in:
+
+  <br><span style='color:blue'>admin.php
+
+    <br>css.php
+
+	<br>index.php
+
+	<br>install_templates.txt
+
+	<br>show.php
+
+	<br>upgrade5.php</span>
+
+	<br><br>Upload the directories (and any contents / sub directories):
+
+	<br>
+
+	<span style='color:red'>
+
+	cache
+
+	<br>
+
+	fonts
+
+	<br>
+
+	html (All files and sub forums, etc)
+
+	<br>
+
+	lang/en/*.php  (All PHP files. Create the directory if it's not there and upload into it)
+
+	<br>
+
+	Skin/s1/*.php (All PHP files. Create the directory if it's not there and upload into it)
+
+	<br>
+
+	sources/*.*  (All PHP files and sub folders)
+
+	<br>
+
+	style_images/1/ (All files. Create the directory "1" if it's not there and upload into it)</span>
+
+	<br><br>
+
+	In short: Upload everything as if it were a new install!
+
+	<br><br>
+
+	<b>Please check the following before you proceed</b>
+
+	<br>You MUST ensure that the new skin PHP files are in a directory called "Skin/s1/" - if you have previously removed "s1" from the "Skins" directory, please re-create it via FTP and upload the skin PHP files into it.
+
+	<br><br>You MUST ensure that the new images are in a directory called "style_images/1/" - if you have previously
+
+	removed "1" from the "style_images" directory, please re-create it via FTP and upload the images into it.
+
+	<br><br>You MUST make sure the file 'install_templates.txt' is uploaded into the same directory as 'index.php'
+
+	<br><br>You MUST make sure the script 'upgrade5.php' is uploaded into the same directory as 'index.php'
+
+	<br><br>
+
+	<b>Running the upgrade script</b>
+
+	<br>
+
+	Open up a new browser window and enter the URL to the upgrade5.php script (example: www.board.com/forums/upgrade5.php)
+
+	Follow the onscreen instructions to update your database.
+
+	<br><br>
+
+	If you get an error during the upgrade, try hitting back in your browser and try again.
+
+	<br>
+
+	This script will upgrade your database, install new templates and perform a clean up.
+
+	<br><br>
+
+	<span style='color:red'><b>IMPORTANT: PLEASE REMOVE THE SCRIPT WHEN THE UPGRADE IS COMPLETED!</b></span>
+
+	<br><br>
+
+	That's it, you should be done!
+
+  </td></tr>
+
+</table>
+
+
+
+<br>
+
+
+
+<a name='main'></a>
+
+<table width='95%' align='center' cellpadding='4' cellspacing='0'>
+
+ <tr>
+
+  <td class='header' align='left'>HELP!!: Common Problems</td>
+
+ </tr>
+
+ <tr>
+
+  <td align='left'>
+
+  <b>The upgrade worked fine, but I get a blank screen now!!</b>
+
+  <br>
+
+  The upgrade takes it's best guess when it creates the new skin set, it's not impossible that it might not match everything up.
+
+  If you get a blank screen, it's usually because the board wrapper it's chosen is broken / doesn't exist. Try the following:
+
+  <br>Log into your Admin CP. Go to "Skins & Templates". Click on "Manage Skin Sets" and edit "IPB Default Set (1.2)" and make
+
+  sure it's got a valid template set and wrapper.
+
+  <br><br>
+
+  <b>I can't do anything, I get loads of errors!!</b>
+
+  <br>
+
+  This is <b>always</b> caused by a failure to update the files in "Skin/s1/" on your server. Simply put, they MUST be updated from
+
+  the ones included in this zip file (upload/Skins/s1). Upload the skins and refresh your browser.
+
+  
+
+   </td></tr>
+
+</table>
+
+
+
+<br>
+
+
+
+<a name='help'></a>
+
+<table width='95%' align='center' cellpadding='4' cellspacing='0'>
+
+ <tr>
+
+  <td class='header' align='left'>Getting further help</td>
+
+ </tr>
+
+ <tr>
+
+  <td align='left'>
+
+  If you have a problem outside the ones solved in this guide, then don't panic!<br>
+
+  We have a large team of trained support professionals that <b>will</b> be able to provide a solution to your problems.<br>
+
+  Your first stop would be our "Support and Community Forums". We have a large active community who have experience in maintaining their Invision Power Board who may be able to give you a prompt reply - our support professionals also moderate these forums and
+
+  will read your posts. We do recommend that you make use of the search facility on the board to avoid posting problems that have already been posted - there is also a good chance that it's already been reported, discussed and solved.
+
+  <br>
+
+  
+
+  <br>You may wish to consider <b><a href='http://www.invisionboard.com/?whyregister' target='_blank'>registering your board</a></b>. A once only fee will cover you for all support requests for a period of one year (12 months).
+
+  <br>Priority support entitles you to the following benefits:
+
+  <ul>
+
+<li>Your support tickets will be marked priority and only Invision Power Board administrators will have access to those tickets.
+
+<li>You will be given access to a private support forum on our Community Forums.
+
+<li>If you are in the United States you will receive telephone support if desired.
+
+<li>In most cases we will login to your account and address problems for you.
+
+<li>We can install and upgrade the software for you if desired.</ul>
+
+<br>
+
+For more information on our priority support service, please visit our <a href='http://www.invisionboard.com/?services' target='_blank'>advanced services</a> page.
+
+<br><br>
+
+If you wish to contact us for non-technical issues, please visit our <a href='http://www.invisionpower.com/?contact' target='_blank'>Contact Page</a> which includes a handy email form, mailing address and telephone number.
+
+  </td>
+
+ </tr>
+
+</table>
+
+
+
+<!-- End content -->
+
+
+
+</body>
+
+</html>
