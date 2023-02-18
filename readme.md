@@ -67,3 +67,10 @@ docker build -t invision:mysql ./docker/mysql && docker build -t invision:http .
    - Email Address: `root@localhost`
  4. Click proceed and keep clicking through until you get to the login screen.
  5. Great Success! You should have an instance of invision board running.
+
+## Screenshots
+![Screenshot](screenshots/2.png)
+![Screenshot](screenshots/3.png)
+![Screenshot](screenshots/4.png)
+![Screenshot](screenshots/5.png)
+![Screenshot](screenshots/6.png)
