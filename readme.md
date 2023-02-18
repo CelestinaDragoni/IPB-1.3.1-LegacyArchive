@@ -17,7 +17,7 @@ This is very much legacy software written in PHP 4 syntax and only runs correctl
 - Invision https://invisioncommunity.com/ (Non-Free)
 
 ## Developer Notes
-The contents of `/public` have been modified to work with PHP 5.4 to remove `call-time pass-by-reference`. Furthermore, the docker adds a prepend file to `php.ini` to add back in variables that were removed in this version. You can find this prepend file in the `docker/http/php` folder as `prepend.php`.
+The contents of `/public` have been modified to work with PHP 5.4 to remove `call-time pass-by-reference`. Furthermore, the docker adds a prepend file to `php.ini` to add back in variables that were removed in this version. You can find this prepend file in the `docker/http/php` folder as `prepend.php`. Upgrading to PHP 7 or 8 isn't an option without a lot of refactoring.
 
 The MySQL 4 instance was built with the help of this archive: https://github.com/andrebossi/mysql4. However, it has been heavily modified to fit the use case of this archive. Upgrading to MySQL 5 isn't an option without a major refactor of the queries used. They did a lot of integer assignments with empty strings <.<;
 
